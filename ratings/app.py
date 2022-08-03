@@ -18,11 +18,11 @@ def recently_added_list():
     }).inserted_id
 
     reviewRecord = ratings.find_one(result)
-    return dumps(rentalRecord)
+    return dumps(reviewRecord)
 
 @app.route('/ratings/isbn/<ISBN>', methods=['GET'])
 def book_info(isbn):
-    book_data = mongo_books_coll.find({"ISBN": isbn})
+    book_data = ratings.find({"ISBN": isbn})
     return dumps(book_data)
 
 
